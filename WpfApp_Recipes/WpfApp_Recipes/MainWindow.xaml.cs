@@ -25,5 +25,15 @@ namespace WpfApp_Recipes
             InitializeComponent();
 
         }
+
+        private void BtnDishes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnIngredients_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
