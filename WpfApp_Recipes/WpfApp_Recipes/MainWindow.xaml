@@ -18,9 +18,11 @@
 
         <TextBlock Grid.Column="1" Text="HEADER" FontSize="24" Margin="10,0" VerticalAlignment="Center"></TextBlock>
 
-        <StackPanel Grid.RowSpan="2" Background="LightGreen">
+        <StackPanel Grid.RowSpan="2" Background="LightGreen" Orientation="Vertical">
             <Button Name="BtnDishes" Click="BtnDishes_Click">Блюда</Button>
             <Button Name="BtnIngredients" Click="BtnIngredients_Click">Ингредиенты</Button>
         </StackPanel>
+
+        <Frame Grid.Row="1" Grid.Column="1" Name="MainFrame" Background="LightYellow" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>

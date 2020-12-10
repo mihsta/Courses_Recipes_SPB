@@ -16,24 +16,13 @@ using System.Windows.Shapes;
 namespace WpfApp_Recipes
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PageIngredients.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PageIngredients : Page
     {
-        public MainWindow()
+        public PageIngredients()
         {
             InitializeComponent();
-
-        }
-
-        private void BtnDishes_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new PageDishes());
-        }
-
-        private void BtnIngredients_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new PageIngredients());
         }
     }
 }
