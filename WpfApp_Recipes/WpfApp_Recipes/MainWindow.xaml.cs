@@ -23,6 +23,13 @@ namespace WpfApp_Recipes
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        private void BtnMyButton_Click(object sender, RoutedEventArgs e)
+        {
+            BtnMy.Height += 5;
+            BtnMy.Background = Brushes.LightSeaGreen;
         }
     }
 }
