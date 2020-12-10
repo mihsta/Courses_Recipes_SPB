@@ -16,7 +16,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="1" Text="HEADER" FontSize="24" Margin="10,0" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Grid.Column="1" Text="{Binding ElementName=MainFrame, Path=Content.Title}" FontSize="24" Margin="10,0" VerticalAlignment="Center"></TextBlock>
 
         <StackPanel Grid.RowSpan="2" Background="LightGreen" Orientation="Vertical">
             <Button Name="BtnDishes" Click="BtnDishes_Click">Блюда</Button>

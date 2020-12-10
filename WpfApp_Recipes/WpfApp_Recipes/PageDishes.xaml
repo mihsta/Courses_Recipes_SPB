@@ -6,9 +6,26 @@
       xmlns:local="clr-namespace:WpfApp_Recipes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageDishes">
+      Title="Список блюд">
 
     <Grid>
-        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50">PAGE Dishes</Label>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Horizontal" Background="LightSteelBlue">
+            <Label>Категория: </Label>
+            <ComboBox Name="CmbCategories" SelectionChanged="CmbCategories_SelectionChanged"></ComboBox>
+            <Label>Наименование: </Label>
+            <TextBox TextChanged="TextBox_TextChanged"></TextBox>
+        </StackPanel>
+
+        <CheckBox Name="ChbAvailable" Grid.Row="1">Показывать только блюда, на которые хватает ингредиентов</CheckBox>
+
+        <DataGrid Grid.Row="2" x:Name="DGridDishes">
+            
+        </DataGrid>
     </Grid>
 </Page>

@@ -24,5 +24,15 @@ namespace WpfApp_Recipes
         {
             InitializeComponent();
         }
+
+        private void CmbCategories_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
