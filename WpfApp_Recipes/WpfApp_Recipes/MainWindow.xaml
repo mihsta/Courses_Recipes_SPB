@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:WpfApp_Recipes"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
+    <UniformGrid Columns="2" Rows="2">
+        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -16,9 +16,10 @@
             <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Button Grid.Column="1" Grid.Row="1" x:Name="BtnMy" Background="LightYellow" Height="30" Width="300" Click="BtnMyButton_Click">My button</Button>
+        </Grid.RowDefinitions>-->
+        <Button x:Name="BtnMy" Background="LightYellow" Height="30" Width="300" Click="BtnMyButton_Click">My button</Button>
         <Label FontSize="50" FontWeight="Normal" FontStyle="Italic" Foreground="DarkGreen" Content="My label" HorizontalAlignment="Center"></Label>
         <TextBox VerticalAlignment="Bottom" Background="LightCoral" Margin="10" Text="kljlkjlk"></TextBox>
-    </Grid>
+        <Button x:Name="BtnMy2" Background="LightYellow" Height="30" Width="300" Click="BtnMyButton_Click">My button</Button>
+    </UniformGrid>
 </Window>
