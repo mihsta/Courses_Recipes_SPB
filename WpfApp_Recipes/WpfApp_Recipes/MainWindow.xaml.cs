@@ -25,11 +25,5 @@ namespace WpfApp_Recipes
             InitializeComponent();
 
         }
-
-        private void BtnMyButton_Click(object sender, RoutedEventArgs e)
-        {
-            BtnMy.Height += 20;
-            BtnMy.Background = Brushes.LightSeaGreen;
-        }
     }
 }
