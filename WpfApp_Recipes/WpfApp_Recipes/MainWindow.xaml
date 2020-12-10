@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp_Recipes"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <UniformGrid Columns="2" Rows="2">
+    <StackPanel Orientation="Vertical">
         <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -17,9 +17,12 @@
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>-->
-        <Button x:Name="BtnMy" Background="LightYellow" Height="30" Width="300" Click="BtnMyButton_Click">My button</Button>
+        <Button x:Name="BtnMy" Background="LightYellow" Height="30" Width="30" Click="BtnMyButton_Click">My button</Button>
         <Label FontSize="50" FontWeight="Normal" FontStyle="Italic" Foreground="DarkGreen" Content="My label" HorizontalAlignment="Center"></Label>
         <TextBox VerticalAlignment="Bottom" Background="LightCoral" Margin="10" Text="kljlkjlk"></TextBox>
-        <Button x:Name="BtnMy2" Background="LightYellow" Height="30" Width="300" Click="BtnMyButton_Click">My button</Button>
-    </UniformGrid>
+        <Button x:Name="BtnMy2" Background="LightYellow" Height="30" Width="30" Click="BtnMyButton_Click">My button</Button>
+        <ComboBox></ComboBox>
+        <Button>wfwee</Button>
+        <DatePicker></DatePicker>
+    </StackPanel>
 </Window>
