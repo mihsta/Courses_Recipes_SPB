@@ -28,7 +28,7 @@ namespace WpfApp_Recipes
 
         private void BtnMyButton_Click(object sender, RoutedEventArgs e)
         {
-            BtnMy.Height += 5;
+            BtnMy.Height += 20;
             BtnMy.Background = Brushes.LightSeaGreen;
         }
     }

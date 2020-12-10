@@ -8,5 +8,6 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button x:Name="BtnMy" Background="LightYellow" Height="30" Width="300" Click="BtnMyButton_Click">My button</Button>
+        <Label FontSize="50" FontWeight="Bold" FontStyle="Italic" Foreground="DarkGreen" Content="My label" HorizontalAlignment="Center"></Label>
     </Grid>
 </Window>
