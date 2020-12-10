@@ -1,0 +1,15 @@
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\bin\Debug\WpfApp_Recipes.exe.config
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\bin\Debug\WpfApp_Recipes.exe
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\bin\Debug\WpfApp_Recipes.pdb
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\obj\Debug\WpfApp_Recipes.csprojAssemblyReference.cache
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\obj\Debug\MainWindow.g.cs
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\obj\Debug\App.g.cs
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\obj\Debug\WpfApp_Recipes_MarkupCompile.cache
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\obj\Debug\WpfApp_Recipes_MarkupCompile.lref
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\obj\Debug\MainWindow.baml
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\obj\Debug\WpfApp_Recipes.g.resources
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\obj\Debug\WpfApp_Recipes.Properties.Resources.resources
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\obj\Debug\WpfApp_Recipes.csproj.GenerateResource.cache
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\obj\Debug\WpfApp_Recipes.csproj.CoreCompileInputs.cache
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\obj\Debug\WpfApp_Recipes.exe
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\obj\Debug\WpfApp_Recipes.pdb
