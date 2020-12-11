@@ -18,3 +18,9 @@ C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipe
 C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\obj\Debug\PageDishes.baml
 C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\obj\Debug\PageIngredients.baml
 C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\obj\Debug\App.baml
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\bin\Debug\EntityFramework.dll
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\bin\Debug\EntityFramework.xml
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\obj\Debug\WpfApp_Recipes_Content.g.cs
+C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\obj\Debug\WpfApp_Recipes.csproj.CopyComplete

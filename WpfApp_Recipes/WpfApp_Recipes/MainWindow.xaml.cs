@@ -24,6 +24,7 @@ namespace WpfApp_Recipes
         {
             InitializeComponent();
 
+            MainFrame.Navigate(new PageDishes());
         }
 
         private void BtnDishes_Click(object sender, RoutedEventArgs e)

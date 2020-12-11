@@ -23,6 +23,9 @@ namespace WpfApp_Recipes
         public PageDishes()
         {
             InitializeComponent();
+
+            CourseRecipesEntities context = new CourseRecipesEntities();
+            CmbCategories.ItemsSource = context.Categories.ToList();
         }
 
         private void CmbCategories_SelectionChanged(object sender, SelectionChangedEventArgs e)

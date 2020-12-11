@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c589d31964da40ea99fed69b2b7a3b9a" Name="Diagram1">
+        <EntityTypeShape EntityType="CourseRecipesModel.Category" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseRecipesModel.CookingStage" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseRecipesModel.Dish" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseRecipesModel.Ingredient" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseRecipesModel.IngredientOfStage" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseRecipesModel.Unit" Width="1.5" PointX="2.875" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="CourseRecipesModel.FK_Dish_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseRecipesModel.FK_CookingStage_Dish1" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseRecipesModel.FK_IngredientOfStage_CookingStage1" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseRecipesModel.FK_Ingredient_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseRecipesModel.FK_IngredientOfStage_Ingredient" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

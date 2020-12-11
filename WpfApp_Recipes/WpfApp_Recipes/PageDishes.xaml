@@ -17,7 +17,7 @@
         
         <StackPanel Orientation="Horizontal" Background="LightSteelBlue">
             <Label>Категория: </Label>
-            <ComboBox Name="CmbCategories" SelectionChanged="CmbCategories_SelectionChanged"></ComboBox>
+            <ComboBox Name="CmbCategories" SelectionChanged="CmbCategories_SelectionChanged" DisplayMemberPath="Name"></ComboBox>
             <Label>Наименование: </Label>
             <TextBox TextChanged="TextBox_TextChanged"></TextBox>
         </StackPanel>
