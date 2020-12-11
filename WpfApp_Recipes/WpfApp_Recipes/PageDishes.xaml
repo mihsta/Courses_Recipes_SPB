@@ -30,6 +30,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Кол-во порций" Binding="{Binding ServingQuantity}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Цена за порцию" Binding="{Binding PricePerServing}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Категория" Binding="{Binding Category.Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Путь до картинки" Binding="{Binding ImagePath}"></DataGridTextColumn>
             </DataGrid.Columns>

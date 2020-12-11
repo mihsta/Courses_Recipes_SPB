@@ -11,7 +11,8 @@ namespace WpfApp_Recipes
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Linq;
+
     public partial class Dish
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +20,7 @@ namespace WpfApp_Recipes
         {
             this.CookingStages = new HashSet<CookingStage>();
         }
-    
+
         public int Id { get; set; }
         public string Name { get; set; }
         public int ServingQuantity { get; set; }
@@ -32,10 +33,19 @@ namespace WpfApp_Recipes
         {
             get
             {
-                return "DishImages/"+Image;
+                return "DishImages/" + Image;
             }
         }
 
+        public double PricePerServing
+        {
+            get
+            {
+                List<IngredientOfStage> listIngredientsOfStage = CookingStages.SelectMany(x => x.IngredientOfStages).ToList();
+                double sumAllServings = listIngredientsOfStage.Sum(x => x.Quantity * x.Ingredient.Price);
+                return sumAllServings / ServingQuantity;
+            }
+        }
 
 
         public virtual Category Category { get; set; }

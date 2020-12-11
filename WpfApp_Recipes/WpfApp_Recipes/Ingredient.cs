@@ -26,6 +26,17 @@ namespace WpfApp_Recipes
         public double CostForCount { get; set; }
         public int UnitId { get; set; }
         public double AvailableCount { get; set; }
+
+
+        public double Price
+        {
+            get
+            {
+                return Cost / CostForCount;
+            }
+        }
+
+
     
         public virtual Unit Unit { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
