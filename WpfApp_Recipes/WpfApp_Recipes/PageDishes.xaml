@@ -20,7 +20,7 @@
             <Label>Категория:</Label>
             <ComboBox Name="CmbCategories" SelectionChanged="CmbCategories_SelectionChanged" DisplayMemberPath="Name"></ComboBox>
             <Label>Наименование:</Label>
-            <TextBox TextChanged="TextBox_TextChanged"></TextBox>
+            <TextBox x:Name="TxtSearch" TextChanged="TextBox_TextChanged"></TextBox>
         </StackPanel>
 
         <CheckBox Name="ChbAvailable" Grid.Row="1">Показывать только блюда, на которые хватает ингредиентов</CheckBox>

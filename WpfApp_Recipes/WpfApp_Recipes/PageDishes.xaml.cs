@@ -20,26 +20,57 @@ namespace WpfApp_Recipes
     /// </summary>
     public partial class PageDishes : Page
     {
+        CourseRecipesEntities context;
         public PageDishes()
         {
             InitializeComponent();
 
-            CourseRecipesEntities context = new CourseRecipesEntities();
-            CmbCategories.ItemsSource = context.Categories.ToList();
+            context = new CourseRecipesEntities();
+            FillCombobox();
 
             // Заполняем таблицу блюд данными из БД
             //DGridDishes.ItemsSource = context.Dishes.ToList();
-            LViewDishes.ItemsSource = context.Dishes.ToList();
+
+            UpdateTable();
+        }
+
+        private void FillCombobox()
+        {
+            List<Category> listCategories = context.Categories.ToList();
+            Category allCat = new Category();
+            allCat.Name = "Все категории";
+            listCategories.Insert(0, allCat);
+            CmbCategories.ItemsSource = listCategories;
+        }
+
+        private void UpdateTable()
+        {
+            List<Dish> listDishes = context.Dishes.ToList();
+
+            if (CmbCategories.SelectedIndex > 0)
+            {
+                var category = CmbCategories.SelectedItem as Category;
+                listDishes = listDishes.Where(x => x.Category == category).ToList();
+            }
+
+            string text = TxtSearch.Text.ToLower();
+
+            if (!string.IsNullOrWhiteSpace(text))
+            {
+                listDishes = listDishes.Where(x => x.Name.ToLower().Contains(text)).ToList();
+            }
+
+            LViewDishes.ItemsSource = listDishes;
         }
 
         private void CmbCategories_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            UpdateTable();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            UpdateTable();
         }
     }
 }
