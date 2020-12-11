@@ -54,7 +54,6 @@ namespace WpfApp_Recipes
             }
 
             string text = TxtSearch.Text.ToLower();
-
             if (!string.IsNullOrWhiteSpace(text))
             {
                 listDishes = listDishes.Where(x => x.Name.ToLower().Contains(text)).ToList();
@@ -71,6 +70,13 @@ namespace WpfApp_Recipes
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             UpdateTable();
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var dish = (sender as Grid).DataContext as Dish;
+
+            NavigationService.Navigate(new PageCurrentDish(dish));
         }
     }
 }

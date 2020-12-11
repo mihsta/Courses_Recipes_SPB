@@ -39,7 +39,7 @@
         <ListView Grid.Row="2" Name="LViewDishes" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Width="220" Height="160">
+                    <Grid Width="220" Height="160" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
                         <Grid.RowDefinitions>
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>

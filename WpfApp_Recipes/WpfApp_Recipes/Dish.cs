@@ -29,11 +29,13 @@ namespace WpfApp_Recipes
         public string RecipeLink { get; set; }
 
 
+
         public string ImagePath
         {
             get
             {
-                return "DishImages/" + Image;
+                //return @"C:\Users\annet_000\Downloads\imagetest\" + Image;
+                return @"DishImages/" + Image;
             }
         }
 
@@ -47,7 +49,13 @@ namespace WpfApp_Recipes
             }
         }
 
-
+        public int FullTime
+        {
+            get
+            {
+                return (int)CookingStages.Sum(x => x.TimeInMinutes);
+            }
+        }
 
 
         public virtual Category Category { get; set; }
