@@ -31,7 +31,7 @@
                 <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Кол-во порций" Binding="{Binding ServingQuantity}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Категория" Binding="{Binding Category.Name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Ссылка на рецепт" Binding="{Binding RecipeLink}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Путь до картинки" Binding="{Binding ImagePath}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
