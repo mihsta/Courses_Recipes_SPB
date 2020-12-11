@@ -14,19 +14,19 @@
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        
+
         <!--Горизонтальный контейнер для организации поиска-->
         <StackPanel Orientation="Horizontal" Background="LightSteelBlue">
-            <Label>Категория: </Label>
+            <Label>Категория:</Label>
             <ComboBox Name="CmbCategories" SelectionChanged="CmbCategories_SelectionChanged" DisplayMemberPath="Name"></ComboBox>
-            <Label>Наименование: </Label>
+            <Label>Наименование:</Label>
             <TextBox TextChanged="TextBox_TextChanged"></TextBox>
         </StackPanel>
 
         <CheckBox Name="ChbAvailable" Grid.Row="1">Показывать только блюда, на которые хватает ингредиентов</CheckBox>
 
         <!--Таблица для вывода блюд-->
-        <DataGrid Grid.Row="2" x:Name="DGridDishes" AutoGenerateColumns="False">
+        <!--<DataGrid Grid.Row="2" x:Name="DGridDishes" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Кол-во порций" Binding="{Binding ServingQuantity}"></DataGridTextColumn>
@@ -34,6 +34,31 @@
                 <DataGridTextColumn Header="Категория" Binding="{Binding Category.Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Путь до картинки" Binding="{Binding ImagePath}"></DataGridTextColumn>
             </DataGrid.Columns>
-        </DataGrid>
+        </DataGrid>-->
+
+        <ListView Grid.Row="2" Name="LViewDishes" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="220" Height="160">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Grid.RowSpan="2" Source="{Binding ImagePath}" Stretch="Fill"></Image>
+                        
+                        <Grid Grid.Row="1" Background="Black" Opacity="0.5"></Grid>
+                        <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
+                            <TextBlock TextAlignment="Center" Text="{Binding Name}" Foreground="White" FontSize="16" TextWrapping="Wrap"></TextBlock>
+                            <TextBlock TextAlignment="Center" FontStyle="Italic" Text="{Binding PricePerServing, StringFormat={}1 порция \= {0:F2} руб.}" Foreground="White"></TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
     </Grid>
 </Page>

@@ -42,10 +42,12 @@ namespace WpfApp_Recipes
             get
             {
                 List<IngredientOfStage> listIngredientsOfStage = CookingStages.SelectMany(x => x.IngredientOfStages).ToList();
-                double sumAllServings = listIngredientsOfStage.Sum(x => x.Quantity * x.Ingredient.Price);
+                double sumAllServings = listIngredientsOfStage.Sum(x => (double)x.Quantity * x.Ingredient.Price);
                 return sumAllServings / ServingQuantity;
             }
         }
+
+
 
 
         public virtual Category Category { get; set; }

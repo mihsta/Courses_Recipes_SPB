@@ -28,7 +28,8 @@ namespace WpfApp_Recipes
             CmbCategories.ItemsSource = context.Categories.ToList();
 
             // Заполняем таблицу блюд данными из БД
-            DGridDishes.ItemsSource = context.Dishes.ToList();
+            //DGridDishes.ItemsSource = context.Dishes.ToList();
+            LViewDishes.ItemsSource = context.Dishes.ToList();
         }
 
         private void CmbCategories_SelectionChanged(object sender, SelectionChangedEventArgs e)
