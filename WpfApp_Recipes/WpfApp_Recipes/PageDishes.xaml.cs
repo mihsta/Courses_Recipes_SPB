@@ -26,6 +26,9 @@ namespace WpfApp_Recipes
 
             CourseRecipesEntities context = new CourseRecipesEntities();
             CmbCategories.ItemsSource = context.Categories.ToList();
+
+            // Заполняем таблицу блюд данными из БД
+            DGridDishes.ItemsSource = context.Dishes.ToList();
         }
 
         private void CmbCategories_SelectionChanged(object sender, SelectionChangedEventArgs e)

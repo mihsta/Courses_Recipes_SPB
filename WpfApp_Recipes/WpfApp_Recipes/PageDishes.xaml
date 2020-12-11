@@ -15,6 +15,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         
+        <!--Горизонтальный контейнер для организации поиска-->
         <StackPanel Orientation="Horizontal" Background="LightSteelBlue">
             <Label>Категория: </Label>
             <ComboBox Name="CmbCategories" SelectionChanged="CmbCategories_SelectionChanged" DisplayMemberPath="Name"></ComboBox>
@@ -24,8 +25,14 @@
 
         <CheckBox Name="ChbAvailable" Grid.Row="1">Показывать только блюда, на которые хватает ингредиентов</CheckBox>
 
-        <DataGrid Grid.Row="2" x:Name="DGridDishes">
-            
+        <!--Таблица для вывода блюд-->
+        <DataGrid Grid.Row="2" x:Name="DGridDishes" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Кол-во порций" Binding="{Binding ServingQuantity}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Категория" Binding="{Binding Category.Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ссылка на рецепт" Binding="{Binding RecipeLink}"></DataGridTextColumn>
+            </DataGrid.Columns>
         </DataGrid>
     </Grid>
 </Page>
