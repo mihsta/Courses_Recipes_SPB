@@ -87,6 +87,9 @@
     <Compile Include="PageAddIngredient.xaml.cs">
       <DependentUpon>PageAddIngredient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageCooking.xaml.cs">
+      <DependentUpon>PageCooking.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageCurrentDish.xaml.cs">
       <DependentUpon>PageCurrentDish.xaml</DependentUpon>
     </Compile>
@@ -106,6 +109,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PageAddIngredient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageCooking.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -16,6 +16,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
@@ -30,6 +31,34 @@
             <Button x:Name="BtnPlus" Click="BtnPlus_Click" Width="25">+</Button>
         </StackPanel>
 
-        <Button Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="10" x:Name="BtnStartCooking" Click="BtnStartCooking_Click">Готовим!</Button>
+        <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" FontSize="18">Ингредиенты:</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" FontSize="18">Приготовление:</TextBlock>
+
+        <DataGrid Grid.Row="3" Grid.Column="0" x:Name="DGridIngredients" AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn></DataGridTemplateColumn>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Ingredient.Name}" Width="3*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Кол-во" Binding="{Binding Quantity}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ед.изм." Binding="{Binding Ingredient.Unit.Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Стоимость" Binding="{Binding Price}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <ListView Grid.Row="3" Grid.Column="1" Name="LViewStages" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock TextWrapping="Wrap" Margin="3">
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}. {1}">
+                                <Binding Path="OrderNumber"></Binding>
+                                <Binding Path="Description"></Binding>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        <Button Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="10" x:Name="BtnStartCooking" Click="BtnStartCooking_Click">Готовим!</Button>
     </Grid>
 </Page>

@@ -26,6 +26,7 @@ namespace WpfApp_Recipes
             InitializeComponent();
 
             currentDish = dish;
+            currentDish.SetOrders();
 
             Title =$"Рецепт для \"{dish.Name}\"";
             UpdateInfo();
@@ -35,9 +36,12 @@ namespace WpfApp_Recipes
         {
             LblCategory.Content = "Категория: "+currentDish.Category.Name;
             LblFullTime.Content = $"Время на приготовление: {currentDish.FullTime} мин.";
-            LblTotalCost.Content = "";
+            LblTotalCost.Content = $"Общая стоимость: {currentDish.PricePerServing*currentDish.ServingQuantity:F0} руб.";
             //
             TxtServices.Text = currentDish.ServingQuantity.ToString();
+
+            LViewStages.ItemsSource = currentDish.CookingStages.ToList();
+            DGridIngredients.ItemsSource = currentDish.CookingStages.SelectMany(x => x.IngredientOfStages).ToList();
         }
 
         private void BtnMinus_Click(object sender, RoutedEventArgs e)
@@ -52,7 +56,7 @@ namespace WpfApp_Recipes
 
         private void BtnStartCooking_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new PageCooking(currentDish));
         }
     }
 }
