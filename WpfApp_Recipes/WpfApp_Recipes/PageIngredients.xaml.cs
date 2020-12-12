@@ -23,6 +23,29 @@ namespace WpfApp_Recipes
         public PageIngredients()
         {
             InitializeComponent();
+
+            CourseRecipesEntities context = new CourseRecipesEntities();
+            LViewIngredients.ItemsSource = context.Ingredients.ToList();
+        }
+
+        private void HLinkDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnPlus_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnMinus_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BorderNewIngredient_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

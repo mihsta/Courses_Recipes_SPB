@@ -9,6 +9,62 @@
       Title="Список ингредиентов">
 
     <Grid>
-        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextBlock>Запасов в холодильнике на сумму (руб.):</TextBlock>
+            <TextBlock x:Name="LblFridgeCost">146,62</TextBlock>
+        </StackPanel>
+
+        <ListView x:Name="LViewIngredients" Margin="0,25,0,30" HorizontalContentAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="5" Background="#eeeeee">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="30"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        
+                        <StackPanel Grid.Column="0" Orientation="Vertical">
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="14"></TextBlock>
+                            <TextBlock FontStyle="Italic">
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}Цена: {0} руб. за {1} {2}">
+                                        <Binding Path="Cost"></Binding>
+                                        <Binding Path="CostForCount"></Binding>
+                                        <Binding Path="Unit.Name"></Binding>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <Hyperlink Foreground="Red" Name="HLinkDelete" Click="HLinkDelete_Click">Удалить</Hyperlink>
+                            </TextBlock>
+                        </StackPanel>
+
+                        <TextBlock Grid.Column="1" FontSize="16" VerticalAlignment="Center">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} {1}">
+                                    <Binding Path="AvailableCount"></Binding>
+                                    <Binding Path="Unit.Name"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+
+                        <StackPanel Grid.Column="2" Orientation="Vertical">
+                            <Button x:Name="BtnPlus" Click="BtnPlus_Click" Width="20" Height="20" Margin="3">+</Button>
+                            <Button x:Name="BtnMinus" Click="BtnMinus_Click" Width="20" Height="20" Margin="3">-</Button>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="2"></UniformGrid>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
+
+        <Border Margin="20,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="50" Height="50" CornerRadius="25" BorderThickness="1" BorderBrush="DarkGreen" Background="LightGreen" Name="BorderNewIngredient" MouseLeftButtonDown="BorderNewIngredient_MouseLeftButtonDown">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="40">+</TextBlock>
+        </Border>
     </Grid>
 </Page>

@@ -24,6 +24,7 @@ namespace WpfApp_Recipes
         {
             InitializeComponent();
 
+
             MainFrame.Navigate(new PageDishes());
         }
 

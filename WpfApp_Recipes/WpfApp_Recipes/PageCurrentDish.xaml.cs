@@ -36,6 +36,7 @@ namespace WpfApp_Recipes
             LblCategory.Content = "Категория: "+currentDish.Category.Name;
             LblFullTime.Content = $"Время на приготовление: {currentDish.FullTime} мин.";
             LblTotalCost.Content = "";
+            //
             TxtServices.Text = currentDish.ServingQuantity.ToString();
         }
 
