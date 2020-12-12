@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\annet_000\Source\Repos\Courses_Recipes_SPB\WpfApp_Recipes\WpfApp_Recipes\App.xaml
-4600491668
+5-817330386
 21750853300
-171276522842
+181621524376
 18382474467
-MainWindow.xaml;PageCurrentDish.xaml;PageDishes.xaml;PageIngredients.xaml;
+MainWindow.xaml;PageAddIngredient.xaml;PageCurrentDish.xaml;PageDishes.xaml;PageIngredients.xaml;
 
 False
 
