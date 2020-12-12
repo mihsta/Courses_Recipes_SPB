@@ -20,12 +20,38 @@ namespace WpfApp_Recipes
     /// </summary>
     public partial class PageIngredients : Page
     {
+        CourseRecipesEntities context;
         public PageIngredients()
         {
             InitializeComponent();
 
-            CourseRecipesEntities context = new CourseRecipesEntities();
+            context = new CourseRecipesEntities();
+
+            // Add
+            //Category newCat = new Category();
+            //newCat.Name = "REMOVE ME";
+            //context.Categories.Add(newCat);
+            //context.SaveChanges();
+
+            // Edit
+            //Category editCat= context.Categories.Where(x => x.Id == 20).FirstOrDefault();
+            //if (editCat != null)
+            //    editCat.Name = "DON'T REMOVE ME PLEASE";
+            //context.SaveChanges();
+
+            // Delete
+            //Category deleteCat = context.Categories.Where(x => x.Id == 20).FirstOrDefault();
+            //if (deleteCat != null)
+            //    context.Categories.Remove(deleteCat);
+            //context.SaveChanges();
+
             LViewIngredients.ItemsSource = context.Ingredients.ToList();
+            UpdateInfo();
+        }
+
+        private void UpdateInfo()
+        {
+            //LViewIngredients.ItemsSource = context.Ingredients.ToList();
             LblFridgeCost.Text = context.Ingredients.ToList().Sum(x => x.AvailableCost).ToString("F0");
         }
 
@@ -36,12 +62,18 @@ namespace WpfApp_Recipes
 
         private void BtnPlus_Click(object sender, RoutedEventArgs e)
         {
-
+            var ingr = (sender as Button).DataContext as Ingredient;
+            ingr.AvailableCount++;
+            context.SaveChanges();
+            UpdateInfo();
         }
 
         private void BtnMinus_Click(object sender, RoutedEventArgs e)
         {
-
+            var ingr = (sender as Button).DataContext as Ingredient;
+            ingr.AvailableCount--;
+            context.SaveChanges();
+            UpdateInfo();
         }
 
         private void BorderNewIngredient_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
