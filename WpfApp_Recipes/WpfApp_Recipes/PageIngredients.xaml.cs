@@ -26,6 +26,7 @@ namespace WpfApp_Recipes
 
             CourseRecipesEntities context = new CourseRecipesEntities();
             LViewIngredients.ItemsSource = context.Ingredients.ToList();
+            LblFridgeCost.Text = context.Ingredients.ToList().Sum(x => x.AvailableCost).ToString("F0");
         }
 
         private void HLinkDelete_Click(object sender, RoutedEventArgs e)

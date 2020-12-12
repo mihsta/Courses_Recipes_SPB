@@ -11,7 +11,7 @@
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
             <TextBlock>Запасов в холодильнике на сумму (руб.):</TextBlock>
-            <TextBlock x:Name="LblFridgeCost">146,62</TextBlock>
+            <TextBlock x:Name="LblFridgeCost" Margin="5,0">146,62</TextBlock>
         </StackPanel>
 
         <ListView x:Name="LViewIngredients" Margin="0,25,0,30" HorizontalContentAlignment="Stretch">
