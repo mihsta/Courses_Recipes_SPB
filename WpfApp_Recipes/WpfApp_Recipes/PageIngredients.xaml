@@ -10,20 +10,20 @@
 
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
-            <TextBlock>Запасов в холодильнике на сумму (руб.):</TextBlock>
-            <TextBlock x:Name="LblFridgeCost" Margin="5,0">146,62</TextBlock>
+            <TextBlock FontSize="14">Запасов в холодильнике на сумму (руб.):</TextBlock>
+            <TextBlock x:Name="LblFridgeCost" Margin="5,0" FontSize="14" FontWeight="Bold">146,62</TextBlock>
         </StackPanel>
 
         <ListView x:Name="LViewIngredients" Margin="0,25,0,30" HorizontalContentAlignment="Stretch">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="5" Background="#eeeeee">
+                    <Grid Margin="5" Background="{DynamicResource MainYellow}" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
                             <ColumnDefinition Width="30"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        
+
                         <StackPanel Grid.Column="0" Orientation="Vertical">
                             <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="14"></TextBlock>
                             <TextBlock FontStyle="Italic">
@@ -40,14 +40,10 @@
                             </TextBlock>
                         </StackPanel>
 
-                        <TextBlock Grid.Column="1" FontSize="16" VerticalAlignment="Center">
-                            <TextBlock.Text>
-                                <MultiBinding StringFormat="{}{0} {1}">
-                                    <Binding Path="AvailableCount"></Binding>
-                                    <Binding Path="Unit.Name"></Binding>
-                                </MultiBinding>
-                            </TextBlock.Text>
-                        </TextBlock>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                            <TextBox x:Name="TxtAvailableCount" TextAlignment="Right" Margin="5,0" TextChanged="TxtAvailableCount_TextChanged" Text="{Binding CountNotify}" Width="40"></TextBox>
+                            <TextBlock Text="{Binding Unit.Name}" FontSize="14" VerticalAlignment="Center"></TextBlock>
+                        </StackPanel>
 
                         <StackPanel Grid.Column="2" Orientation="Vertical">
                             <Button x:Name="BtnPlus" Click="BtnPlus_Click" Width="20" Height="20" Margin="3">+</Button>
@@ -63,8 +59,8 @@
             </ListView.ItemsPanel>
         </ListView>
 
-        <Border Margin="20,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="50" Height="50" CornerRadius="25" BorderThickness="1" BorderBrush="DarkGreen" Background="LightGreen" Name="BorderNewIngredient" MouseLeftButtonDown="BorderNewIngredient_MouseLeftButtonDown">
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="40">+</TextBlock>
+        <Border Margin="20,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="50" Height="50" CornerRadius="25" BorderThickness="1" BorderBrush="DarkGreen" Background="{StaticResource MainGreen}" Name="BorderNewIngredient" MouseLeftButtonDown="BorderNewIngredient_MouseLeftButtonDown">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="50" Margin="0,-10,0,0">+</TextBlock>
         </Border>
     </Grid>
 </Page>

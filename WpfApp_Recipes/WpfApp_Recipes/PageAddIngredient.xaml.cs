@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp_Recipes.Models;
 
 namespace WpfApp_Recipes
 {
@@ -20,13 +21,11 @@ namespace WpfApp_Recipes
     /// </summary>
     public partial class PageAddIngredient : Page
     {
-        CourseRecipesEntities context;
         public PageAddIngredient()
         {
             InitializeComponent();
 
-            context = new CourseRecipesEntities();
-            CmbUnit.ItemsSource = context.Units.ToList();
+            CmbUnit.ItemsSource = App.DBContext.Units.ToList();
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
@@ -44,7 +43,7 @@ namespace WpfApp_Recipes
                 return;
             }
 
-            bool convertCount = int.TryParse(TxtForCount.Text, out int resultCount);
+            bool convertCount = double.TryParse(TxtForCount.Text, out double resultCount);
             if (convertCount == true)
                 ingr.CostForCount = resultCount;
             else
@@ -67,8 +66,8 @@ namespace WpfApp_Recipes
             //ingr.UnitId = unit.Id;
 
 
-            context.Ingredients.Add(ingr);
-            context.SaveChanges();
+            App.DBContext.Ingredients.Add(ingr);
+            App.DBContext.SaveChanges();
 
             NavigationService.GoBack();
         }

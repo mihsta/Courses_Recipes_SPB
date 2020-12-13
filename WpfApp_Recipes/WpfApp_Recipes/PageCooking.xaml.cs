@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp_Recipes.Models;
 
 namespace WpfApp_Recipes
 {
@@ -61,9 +62,15 @@ namespace WpfApp_Recipes
                 BtnBack.IsEnabled = false;
 
             if (stage == currentDish.CookingStages.Count)
+            {
                 BtnNext.IsEnabled = false;
+                BtnDone.IsEnabled = true;
+            }
             else
+            {
                 BtnNext.IsEnabled = true;
+                BtnDone.IsEnabled = false;
+            }
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
@@ -76,6 +83,25 @@ namespace WpfApp_Recipes
         {
             stage++;
             UpdateInfo();
+        }
+
+        private void BtnDone_Click(object sender, RoutedEventArgs e)
+        {
+            var result = MessageBox.Show("Вычесть количество истраченных ингредиентов?","Чистка холодильника", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+            if (result==MessageBoxResult.Yes)
+            {
+                foreach (var ingr in currentDish.ListIngredients)
+                {
+                    ingr.Ingredient.AvailableCount -= ingr.TotalQuantity;
+                }
+                App.DBContext.SaveChanges();
+            }
+            else if (result==MessageBoxResult.Cancel)
+            {
+                return;
+            }
+
+            NavigationService.GoBack();
         }
     }
 }

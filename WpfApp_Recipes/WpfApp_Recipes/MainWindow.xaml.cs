@@ -24,6 +24,8 @@ namespace WpfApp_Recipes
         {
             InitializeComponent();
 
+            // Загляните в файлик App.xaml, чтобы понять, откуда взялся этот DBContext.
+            App.DBContext = new Models.CourseRecipesEntities();
 
             MainFrame.Navigate(new PageDishes());
         }

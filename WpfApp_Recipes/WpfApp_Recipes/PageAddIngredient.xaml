@@ -20,20 +20,25 @@
         </Style>
     </Page.Resources>
     <Grid>
-        <UniformGrid Columns="2">
-            <TextBlock>Наименование: </TextBlock>
-            <TextBox x:Name="TxtName"></TextBox>
-            <TextBlock>Цена (руб.):</TextBlock>
-            <TextBox Name="TxtPrice"></TextBox>
-            <TextBlock>За количество:</TextBlock>
-            <StackPanel Orientation="Horizontal">
-                <TextBox Width="50" Name="TxtForCount"></TextBox>
-                <ComboBox Width="70" Name="CmbUnit" DisplayMemberPath="Name"></ComboBox>
-            </StackPanel>
-            <TextBlock>В холодильнике:</TextBlock>
-            <TextBox Width="50" Name="TxtAvailableCount"></TextBox>
-            <Button x:Name="BtnAdd" Click="BtnAdd_Click" HorizontalAlignment="Right">Добавить</Button>
-            <Button x:Name="BtnCancel" Click="BtnCancel_Click" HorizontalAlignment="Left">Отменить</Button>
-        </UniformGrid>
+        <StackPanel VerticalAlignment="Center">
+
+            <UniformGrid Columns="2">
+                <TextBlock>Наименование:</TextBlock>
+                <TextBox x:Name="TxtName" MaxLength="100"></TextBox>
+                <TextBlock>Цена (руб.):</TextBlock>
+                <TextBox Name="TxtPrice"></TextBox>
+                <TextBlock>За количество:</TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Width="50" Name="TxtForCount"></TextBox>
+                    <ComboBox Width="70" Name="CmbUnit" DisplayMemberPath="Name"></ComboBox>
+                </StackPanel>
+                <TextBlock>В холодильнике:</TextBlock>
+                <TextBox Width="50" Name="TxtAvailableCount"></TextBox>
+            </UniformGrid>
+            <UniformGrid Rows="1">
+                <Button x:Name="BtnAdd" Click="BtnAdd_Click" HorizontalAlignment="Right">Добавить</Button>
+                <Button x:Name="BtnCancel" Click="BtnCancel_Click" HorizontalAlignment="Left">Отменить</Button>
+            </UniformGrid>
+        </StackPanel>
     </Grid>
 </Page>

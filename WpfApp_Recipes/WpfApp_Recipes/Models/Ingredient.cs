@@ -7,59 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfApp_Recipes
+namespace WpfApp_Recipes.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Runtime.CompilerServices;
-
-    public partial class Ingredient : INotifyPropertyChanged
+    
+    public partial class Ingredient
     {
-        private double availableCount;
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Ingredient()
         {
             this.IngredientOfStages = new HashSet<IngredientOfStage>();
         }
-
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public int Cost { get; set; }
         public double CostForCount { get; set; }
         public int UnitId { get; set; }
-        public double AvailableCount
-        {
-            get => availableCount; set
-            {
-                availableCount = value;
-                OnPropertyChanged();
-            }
-        }
-
-
-        public double Price
-        {
-            get
-            {
-                return Cost / CostForCount;
-            }
-        }
-
-        public double AvailableCost => Price * AvailableCount;
-
-
+        public double AvailableCount { get; set; }
+    
         public virtual Unit Unit { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<IngredientOfStage> IngredientOfStages { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
     }
 }

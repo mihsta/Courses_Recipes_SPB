@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp_Recipes.Models;
 
 namespace WpfApp_Recipes
 {
@@ -20,12 +21,10 @@ namespace WpfApp_Recipes
     /// </summary>
     public partial class PageDishes : Page
     {
-        CourseRecipesEntities context;
         public PageDishes()
         {
             InitializeComponent();
 
-            context = new CourseRecipesEntities();
             FillCombobox();
 
             // Заполняем таблицу блюд данными из БД
@@ -36,7 +35,7 @@ namespace WpfApp_Recipes
 
         private void FillCombobox()
         {
-            List<Category> listCategories = context.Categories.ToList();
+            List<Category> listCategories = App.DBContext.Categories.ToList();
             Category allCat = new Category();
             allCat.Name = "Все категории";
             listCategories.Insert(0, allCat);
@@ -45,7 +44,7 @@ namespace WpfApp_Recipes
 
         private void UpdateTable()
         {
-            List<Dish> listDishes = context.Dishes.ToList();
+            List<Dish> listDishes = App.DBContext.Dishes.ToList();
 
             if (CmbCategories.SelectedIndex > 0)
             {
@@ -57,6 +56,12 @@ namespace WpfApp_Recipes
             if (!string.IsNullOrWhiteSpace(text))
             {
                 listDishes = listDishes.Where(x => x.Name.ToLower().Contains(text)).ToList();
+            }
+
+            if (ChbAvailable.IsChecked==true)
+            {
+                listDishes.ForEach(x => x.UserServings = x.ServingQuantity);
+                listDishes = listDishes.Where(x => x.IsAllEnough).ToList();
             }
 
             LViewDishes.ItemsSource = listDishes;
@@ -77,6 +82,11 @@ namespace WpfApp_Recipes
             var dish = (sender as Grid).DataContext as Dish;
 
             NavigationService.Navigate(new PageCurrentDish(dish));
+        }
+
+        private void ChbAvailable_Checked(object sender, RoutedEventArgs e)
+        {
+            UpdateTable();
         }
     }
 }

@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:WpfApp_Recipes"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <SolidColorBrush x:Key="MainBlue" Color="#FFAFE6FF"></SolidColorBrush>
+        <SolidColorBrush x:Key="MainGreen" Color="#FF97D729"></SolidColorBrush>
+        <SolidColorBrush x:Key="MainRed" Color="#FFFD4755"></SolidColorBrush>
+        <SolidColorBrush x:Key="MainYellow" Color="#FFFFFAD7"></SolidColorBrush>
+        
         <Style TargetType="Label">
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
         </Style>
@@ -26,6 +31,11 @@
             <Setter Property="Width" Value="150"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
             <Setter Property="Margin" Value="10"></Setter>
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="AutoGenerateColumns" Value="False"></Setter>
+            <Setter Property="IsReadOnly" Value="True"></Setter>
+            <Setter Property="Background" Value="White"></Setter>
         </Style>
     </Application.Resources>
 </Application>

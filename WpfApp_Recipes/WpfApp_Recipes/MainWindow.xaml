@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp_Recipes"
         mc:Ignorable="d"
-        Title="Мои рецепты" Height="500" Width="1000" MinHeight="300" MinWidth="500">
+        Title="Мои рецепты" Icon="Resources/soup.ico" Height="700" Width="1000" MinHeight="400" MinWidth="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"></ColumnDefinition>
@@ -18,11 +18,12 @@
 
         <TextBlock Grid.Column="1" Text="{Binding ElementName=MainFrame, Path=Content.Title}" FontSize="24" Margin="10,0" VerticalAlignment="Center"></TextBlock>
 
-        <StackPanel Grid.RowSpan="2" Background="LightGreen" Orientation="Vertical">
-            <Button Name="BtnDishes" Click="BtnDishes_Click" Width="Auto">Блюда</Button>
-            <Button Name="BtnIngredients" Click="BtnIngredients_Click" Width="Auto">Ингредиенты</Button>
+        <StackPanel Grid.RowSpan="2" Background="{StaticResource MainGreen}" Orientation="Vertical">
+            <Image Source="Resources/soup.png" Margin="10"></Image>
+            <Button Name="BtnDishes" Click="BtnDishes_Click" Width="Auto" Background="{StaticResource MainYellow}">Блюда</Button>
+            <Button Name="BtnIngredients" Click="BtnIngredients_Click" Width="Auto" Background="{StaticResource MainYellow}">Ингредиенты</Button>
         </StackPanel>
 
-        <Frame Grid.Row="1" Grid.Column="1" Name="MainFrame" Background="LightYellow" NavigationUIVisibility="Hidden"></Frame>
+        <Frame Margin="10" Grid.Row="1" Grid.Column="1" Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>

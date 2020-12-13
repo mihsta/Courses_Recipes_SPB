@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:WpfApp_Recipes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageCurrentDish">
+      Title="PageCurrentDish" Loaded="Page_Loaded">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -27,20 +27,39 @@
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
             <Label>Порций:</Label>
             <Button x:Name="BtnMinus" Click="BtnMinus_Click" Width="25">-</Button>
-            <TextBox Width="40" Name="TxtServices"></TextBox>
+            <TextBox Width="40" Name="TxtServings" TextAlignment="Center" TextChanged="TxtServings_TextChanged"></TextBox>
             <Button x:Name="BtnPlus" Click="BtnPlus_Click" Width="25">+</Button>
         </StackPanel>
 
         <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" FontSize="18">Ингредиенты:</TextBlock>
         <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" FontSize="18">Приготовление:</TextBlock>
 
-        <DataGrid Grid.Row="3" Grid.Column="0" x:Name="DGridIngredients" AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="*">
+        <DataGrid Grid.Row="3" Grid.Column="0" x:Name="DGridIngredients" ColumnWidth="*">
             <DataGrid.Columns>
-                <DataGridTemplateColumn></DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Border Width="20" Height="20" CornerRadius="10">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsEnough}" Value="True">
+                                                <Setter Property="Background" Value="{StaticResource MainGreen}"></Setter>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding IsEnough}" Value="False">
+                                                <Setter Property="Background" Value="{StaticResource MainRed}"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                            </Border>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Наименование" Binding="{Binding Ingredient.Name}" Width="3*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Кол-во" Binding="{Binding Quantity}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Кол-во" Binding="{Binding TotalQuantity}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Ед.изм." Binding="{Binding Ingredient.Unit.Name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Стоимость" Binding="{Binding Price}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Стоимость" Binding="{Binding Sum, StringFormat={}{0:F0} руб.}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
 
@@ -59,6 +78,6 @@
             </ListView.ItemTemplate>
         </ListView>
         
-        <Button Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="10" x:Name="BtnStartCooking" Click="BtnStartCooking_Click">Готовим!</Button>
+        <Button Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,10,0,0" Background="{StaticResource MainGreen}" x:Name="BtnStartCooking" Click="BtnStartCooking_Click">Готовим!</Button>
     </Grid>
 </Page>

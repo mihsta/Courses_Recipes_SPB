@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfApp_Recipes
+namespace WpfApp_Recipes.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,8 +17,6 @@ namespace WpfApp_Recipes
         public int CookingStageId { get; set; }
         public int IngredientId { get; set; }
         public double Quantity { get; set; }
-
-        public int Price => (int)(Quantity * Ingredient.Price);
     
         public virtual CookingStage CookingStage { get; set; }
         public virtual Ingredient Ingredient { get; set; }

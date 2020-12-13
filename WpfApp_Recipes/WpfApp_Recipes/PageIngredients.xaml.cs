@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp_Recipes.Models;
 
 namespace WpfApp_Recipes
 {
@@ -20,12 +21,11 @@ namespace WpfApp_Recipes
     /// </summary>
     public partial class PageIngredients : Page
     {
-        CourseRecipesEntities context;
         public PageIngredients()
         {
             InitializeComponent();
 
-            context = new CourseRecipesEntities();
+            //var context = new CourseRecipesEntities();
 
             // Add
             //Category newCat = new Category();
@@ -44,51 +44,54 @@ namespace WpfApp_Recipes
             //if (deleteCat != null)
             //    context.Categories.Remove(deleteCat);
             //context.SaveChanges();
-
-            LViewIngredients.ItemsSource = context.Ingredients.ToList();
-            UpdateInfo();
         }
 
-        private void UpdateInfo()
+        private void UpdateLabel()
         {
-            LViewIngredients.ItemsSource = context.Ingredients.ToList();
-            LblFridgeCost.Text = context.Ingredients.ToList().Sum(x => x.AvailableCost).ToString("F0");
+            LblFridgeCost.Text = App.DBContext.Ingredients.ToList().Sum(x => x.AvailableCost).ToString("F0");
+        }
+
+        private void UpdateTable()
+        {
+            LViewIngredients.ItemsSource = App.DBContext.Ingredients.ToList();
         }
 
         private void HLinkDelete_Click(object sender, RoutedEventArgs e)
         {
             var ingr = (sender as Hyperlink).DataContext as Ingredient;
 
-            if (ingr.IngredientOfStages.Count>0)
+            if (ingr.IngredientOfStages.Count > 0)
             {
                 MessageBox.Show("Не трожь! Ингредиент нам еще нужен");
                 return;
             }
 
-            MessageBoxResult result= MessageBox.Show("Точно хотите удалить?", "Разрешение удаления", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result==MessageBoxResult.Yes)
+            MessageBoxResult result = MessageBox.Show("Точно хотите удалить?", "Разрешение удаления", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
             {
-                context.Ingredients.Remove(ingr);
-                context.SaveChanges();
+                App.DBContext.Ingredients.Remove(ingr);
+                App.DBContext.SaveChanges();
+                UpdateLabel();
+                UpdateTable();
             }
-
-            UpdateInfo();
         }
 
         private void BtnPlus_Click(object sender, RoutedEventArgs e)
         {
             var ingr = (sender as Button).DataContext as Ingredient;
             ingr.AvailableCount++;
-            context.SaveChanges();
-            UpdateInfo();
+            ingr.CountNotify = ingr.AvailableCount;
+            App.DBContext.SaveChanges();
+            UpdateLabel();
         }
 
         private void BtnMinus_Click(object sender, RoutedEventArgs e)
         {
             var ingr = (sender as Button).DataContext as Ingredient;
             ingr.AvailableCount--;
-            context.SaveChanges();
-            UpdateInfo();
+            ingr.CountNotify = ingr.AvailableCount;
+            App.DBContext.SaveChanges();
+            UpdateLabel();
         }
 
         private void BorderNewIngredient_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -98,7 +101,21 @@ namespace WpfApp_Recipes
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            UpdateInfo();
+            UpdateLabel();
+            UpdateTable();
+        }
+
+        private void TxtAvailableCount_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox txtAvailable = sender as TextBox;
+            var ingr = txtAvailable.DataContext as Ingredient;
+            if (double.TryParse(txtAvailable.Text, out double result))
+            {
+                ingr.AvailableCount = result;
+                ingr.CountNotify = ingr.AvailableCount;
+                App.DBContext.SaveChanges();
+                UpdateLabel();
+            }
         }
     }
 }

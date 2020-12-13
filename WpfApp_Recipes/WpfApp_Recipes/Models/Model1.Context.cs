@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfApp_Recipes
+namespace WpfApp_Recipes.Models
 {
     using System;
     using System.Data.Entity;

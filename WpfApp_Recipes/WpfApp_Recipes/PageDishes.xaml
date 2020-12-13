@@ -16,14 +16,14 @@
         </Grid.RowDefinitions>
 
         <!--Горизонтальный контейнер для организации поиска-->
-        <StackPanel Orientation="Horizontal" Background="LightSteelBlue">
+        <StackPanel Orientation="Horizontal" Background="{StaticResource MainBlue}">
             <Label>Категория:</Label>
             <ComboBox Name="CmbCategories" SelectionChanged="CmbCategories_SelectionChanged" DisplayMemberPath="Name"></ComboBox>
             <Label>Наименование:</Label>
             <TextBox x:Name="TxtSearch" TextChanged="TextBox_TextChanged"></TextBox>
         </StackPanel>
 
-        <CheckBox Name="ChbAvailable" Grid.Row="1">Показывать только блюда, на которые хватает ингредиентов</CheckBox>
+        <CheckBox Name="ChbAvailable" Grid.Row="1" Checked="ChbAvailable_Checked" Unchecked="ChbAvailable_Checked">Показывать только блюда, на которые хватает ингредиентов</CheckBox>
 
         <!--Таблица для вывода блюд-->
         <!--<DataGrid Grid.Row="2" x:Name="DGridDishes" AutoGenerateColumns="False">
